@@ -1,3 +1,4 @@
-const weatherController = require('./weather.controller');
+const userController = require('./user.controller');
+const authController = require('./auth.controller');
 
-module.exports = { weatherController };
+module.exports = { userController, authController };

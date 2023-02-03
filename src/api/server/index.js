@@ -11,6 +11,8 @@ const apiError = require('../utils/apiError');
 const { errorConverter, errorHandler } = require('../middleware/error');
 const httpStatus = require('http-status');
 const helmet = require('helmet');
+require('../../../db/index');
+
 /**
  * Assign the express server to app
  */
@@ -29,7 +31,6 @@ app.use(function (req, res, next) {
 /**
  * Set Globals
  */
-global.logger = logger;
 global.logger = logger;
 
 app.set('view engine', 'ejs');
@@ -64,7 +65,7 @@ app.use((req, res, next) => {
 	next();
 });
 
-app.use('/api/v1', require('../routes/index.route'));
+app.use('/api/v1', require('../routes'));
 
 // send back a 404 error for any unknown api request
 app.use((req, res, next) => {
