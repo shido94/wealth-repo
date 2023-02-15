@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { authController } = require('../controllers');
-const validate = require('../middleware/validate');
+const { validate } = require('../middleware');
 const { authValidation } = require('../validations');
 
 /**
@@ -28,13 +28,7 @@ const { authValidation } = require('../validations');
  *         properties:
  *           email:
  *             type: string
- *           mobile:
- *             type: number
  *           password:
- *             type: string
- *           deviceType:
- *             type: number
- *           deviceToken:
  *             type: string
  *     responses:
  *       200:
@@ -60,6 +54,8 @@ router.post('/login', validate(authValidation.login), authController.login);
  *         required:
  *           - password
  *         properties:
+ *           name:
+ *             type: string
  *           email:
  *             type: string
  *           mobile:

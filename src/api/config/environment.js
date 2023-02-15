@@ -16,8 +16,10 @@ module.exports = (function () {
 	return {
 		PORT: process.env.PORT,
 		API_URI: process.env.API_URI,
-		WEATHER_API_KEY: process.env.WEATHER_API_KEY,
-		WEATHER_URI: process.env.WEATHER_URI,
 		DATABASE: process.env.DATABASE,
+		ACCESS_TOKEN_SECRET: process.env.ACCESS_TOKEN_SECRET,
+		REFRESH_TOKEN_SECRET: process.env.REFRESH_TOKEN_SECRET,
+		ACCESS_TOKEN_EXPIRATION: process.env.ACCESS_TOKEN_EXPIRATION,
+		REFRESH_TOKEN_EXPIRATION: process.env.REFRESH_TOKEN_EXPIRATION,
 	};
 })();

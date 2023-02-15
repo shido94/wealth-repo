@@ -16,6 +16,9 @@ const login = {
 
 const signup = {
 	body: Joi.object().keys({
+		name: Joi.string().trim().email().messages({
+			'string.base': `Name must be string`,
+		}),
 		email: Joi.string().trim().email().messages({
 			'string.base': `Email must be string`,
 			'any.email': 'Email is not valid',

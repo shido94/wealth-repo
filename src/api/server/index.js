@@ -8,7 +8,7 @@ const { logger, swagger } = require('../utils');
 const path = require('path');
 const methodOverRide = require('method-override');
 const apiError = require('../utils/apiError');
-const { errorConverter, errorHandler } = require('../middleware/error');
+const { error } = require('../middleware');
 const httpStatus = require('http-status');
 const helmet = require('helmet');
 require('../../../db/index');
@@ -73,9 +73,9 @@ app.use((req, res, next) => {
 });
 
 // convert error to apiError, if needed
-app.use(errorConverter);
+app.use(error.errorConverter);
 
 // handle error
-app.use(errorHandler);
+app.use(error.errorHandler);
 
 module.exports = app;
